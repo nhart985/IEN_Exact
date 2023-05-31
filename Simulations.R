@@ -263,7 +263,7 @@ doParallel::registerDoParallel(cl)
 `%dopar%`=foreach::`%dopar%`
 result=foreach::foreach(i=iterators::icount(B),.combine=rbind) %dopar% {
   simul=simulation2(0,norm=norms[i])
-  c(apply(simul$flag!=0,2,mean),simul$natl_props,simul$res1,simul$res2)
+  c(apply(simul$flag!=0,2,mean),simul$natl_props)
 }
 results=as.data.frame(result)
 names(results)=c("Naive Exact","Asymptotic IEN","Inversion IEN","Exact IEN","National Proportion")
